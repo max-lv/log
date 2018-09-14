@@ -26,7 +26,7 @@ def log(msg, exc_info=False, level="INFO"):
             ex = traceback.format_exception(t, v, tb)
             msg += '\n' + ''.join(ex)
 
-    print(f"{cur_time:<20} - {level:<8} - {call_info.filename:>40}:{call_info.lineno} - {msg}")
+    print(f"{cur_time:<20} - {level:<8} - {call_info.filename:>40}:{call_info.lineno} - {msg}", flush=True)
 
 
 def info(msg, **kwargs):
