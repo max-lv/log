@@ -6,7 +6,7 @@ import traceback
 from inspect import getframeinfo, stack, getmodule
 
 
-_LOG_LEVEL = os.environ.get('LOG_LEVEL', 'WARN').upper()
+_LOG_LEVEL = os.environ.get('LOG_LEVEL', 'OFF').upper()
 
 _LEVELS = {
     'DEBUG': 0,
