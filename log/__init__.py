@@ -1,17 +1,18 @@
 
 import os
+import sys
 import time
-import traceback, sys
+import traceback
 from inspect import getframeinfo, stack, getmodule
 
 
-_LOG_LEVEL = os.environ.get('LOG_LEVEL', 'WARN')
+_LOG_LEVEL = os.environ.get('LOG_LEVEL', 'WARN').upper()
 
 _LEVELS = {
     'DEBUG': 0,
     'INFO': 1,
     'WARN': 2,
-    'ERROR': 3
+    'ERROR': 3,
 }
 
 
@@ -28,7 +29,7 @@ def log(msg, exc_info=False, level="INFO"):
           ^ date during call     ^       ^ calling file  ^ line number  ^ `msg` argument
                                  | `level` keyword argument
     """
-    if _LEVELS.get(level, 42) < _LEVELS.get(_LOG_LEVEL, 0):
+    if _LEVELS.get(level, 42) < _LEVELS.get(_LOG_LEVEL, 999):
         return
 
     call_info = caller_frame(stack())
